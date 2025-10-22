@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import './App.scss';
 import { GoodsList } from './GoodsList';
 
-import { getAll, get5First, getRedGoods } from './api/goods';
+import { getAll, getFirstFiveGoods, getRedGoods } from './api/goods';
 import { Good } from './types/Good';
-// or
-// import * as goodsAPI from './api/goods';
 
-enum LoadType {
+export enum LoadType {
   All,
   FirstFive,
   Red,
@@ -24,7 +22,7 @@ export const App: React.FC = () => {
         promise = getAll();
         break;
       case LoadType.FirstFive:
-        promise = get5First();
+        promise = getFirstFiveGoods();
         break;
       case LoadType.Red:
         promise = getRedGoods();
